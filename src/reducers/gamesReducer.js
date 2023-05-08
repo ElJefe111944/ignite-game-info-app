@@ -3,9 +3,10 @@ const initState = {
     popular: [],
     newGames: [],
     upcoming: [],
+    searched: [],
 };
 
-const gameRducer = (state=initState, action) => {
+const gameReducer = (state=initState, action) => {
     switch(action.type){
         case 'FETCH_GAMES':
             return {...state};
@@ -14,4 +15,5 @@ const gameRducer = (state=initState, action) => {
     }
 };
 
-export default gameRducer;
+
+export default gameReducer;
