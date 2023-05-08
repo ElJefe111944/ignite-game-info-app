@@ -1,5 +1,6 @@
 const initState = {
     game: {},
+    screen: {}
 }
 
 const detailReducer = (state=initState, action) => {
@@ -7,7 +8,8 @@ const detailReducer = (state=initState, action) => {
         case 'GET_DETAIL':
             return {
                 ...state,
-                game: action.payload.game
+                game: action.payload.game,
+                screen: action.payload.screen
             }
         default:
             return {...state}

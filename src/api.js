@@ -54,7 +54,11 @@ export const upcomingGamesURL = () => {
 export const newGamesURL = () => {
     return `${base_url}${new_games}`;
 };
-
+// game details
 export const gameDetailsURL = (game_id) => {
     return `${base_url}games/${game_id}?key=${api_key}`;
+};
+// game screenshots
+export const gameScreenshotsURL = (game_id) => {
+    return `${base_url}games/${game_id}/screenshots?key=${api_key}`;
 };
