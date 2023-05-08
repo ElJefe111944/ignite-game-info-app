@@ -56,5 +56,5 @@ export const newGamesURL = () => {
 };
 
 export const gameDetailsURL = (game_id) => {
-    return `${base_url}games?key=${api_key}/${game_id}`;
+    return `${base_url}games/${game_id}?key=${api_key}`;
 };

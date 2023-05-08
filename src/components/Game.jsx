@@ -2,6 +2,9 @@ import React from 'react';
 // styling & animation
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+// redux
+import { useDispatch } from 'react-redux';
+import { loadDetail } from '../action/detailActions.js'
 
 
 function Game( { game } ) {
@@ -10,10 +13,19 @@ function Game( { game } ) {
     name, 
     released,
     background_image,
+    id
   } = game;
 
+  // load details
+  const dispatch = useDispatch();
+
+  const loadDetailHandler = () => {
+    dispatch(loadDetail(id));
+    console.log('clicked')
+  };
+
   return (
-    <StyledGame>
+    <StyledGame onClick={loadDetailHandler}>
         <h3>{name}</h3>
         <p>{released}</p>
         <img src={background_image} alt={name} />
