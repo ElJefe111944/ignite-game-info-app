@@ -9,7 +9,8 @@ export const loadGames = () => async (dispatch) => {
     dispatch({
         type: 'FETCH_GAMES',
         payload: {
-            popular: popularData,
+            popular: popularData.data.results,
         },
     })
+    console.log(popularData)
 };
