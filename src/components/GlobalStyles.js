@@ -1,8 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
-    /* @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:wght@400;500;600&display=swap'); */
-
+  
 
     * {
         margin: 0;
@@ -16,6 +15,9 @@ const GlobalStyles = createGlobalStyle`
         &::-webkit-scrollbar-thumb {
             background-color: darkgrey;
         }
+        &::-webkit-scrollbar-track {
+         background: white;
+    }
     }
     body {
         width: 100%;

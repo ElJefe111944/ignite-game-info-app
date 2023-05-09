@@ -10,8 +10,8 @@ function GamesDetail() {
     const { screen, game } = useSelector((state => state.details));
 
   return (
-    <div className='card-shadow'>
-        <div className="detail">
+    <CardShadow className='card-shadow'>
+        <Detail className="detail">
             <div className="stats">
                 <div className="rating">
                     <h3>{game.name}</h3>
@@ -20,9 +20,9 @@ function GamesDetail() {
                 <div className="info">
                     <h3>Platforms</h3>
                     <div className="platforms">
-                        {game.platforms.map((data) => {
+                        {game.platforms?.map((data) => {
                             return (
-                                <h3 key={data.id}>{data.name}</h3>
+                                <h3 key={data.platform.id}>{data.platform.name}</h3>
                             )
                         })}
                     </div>
@@ -31,16 +31,52 @@ function GamesDetail() {
             <div className="media">
                 <img src={game.background_image} alt={game.name} />
             </div>
+            <div className="description">
+                <p>{game.description_raw}</p>
+            </div>
             <div className="gallery">
-                {screen.results.map((screen) => {
+                {screen.results?.map((screen) => {
                     return (
                         <img src={screen.image} key={screen.id} alt='Image' />
                     )
                 })}
             </div>
-        </div>
-    </div>
-  )
-}
+        </Detail>
+    </CardShadow>
+  );
+};
+
+const CardShadow = styled(motion.div)`
+    width: 100%;
+    min-height: 100vh;
+    overflow-y: scroll;
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    &::-webkit-scrollbar {
+        width: 0%.5rem;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: #ff7676;
+    }
+    &::-webkit-scrollbar-track {
+         background: white;
+    }
+`;
+const Detail = styled(motion.div)`
+    width: 80%;
+    border-radius: 1rem;
+    padding: 2rem 20rem;
+    background: white;
+    position: absolute;
+    left: 10%;
+    color: black;
+
+    img {
+        width: 100%;
+    }
+`;
 
 export default GamesDetail
