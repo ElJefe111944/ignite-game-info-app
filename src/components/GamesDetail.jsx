@@ -7,42 +7,46 @@ import { useSelector } from 'react-redux';
 
 function GamesDetail() {
     // load game details
-    const { screen, game } = useSelector((state => state.details));
+    const { screen, game, isloading } = useSelector((state => state.details));
 
   return (
-    <CardShadow className='card-shadow'>
-        <Detail className="detail">
-            <Stats className="stats">
-                <div className="rating">
-                    <h3>{game.name}</h3>
-                    <p>Rating: {game.rating}</p>
-                </div>
-                <Info className="info">
-                    <h3>Platforms</h3>
-                    <Platforms className="platforms">
-                        {game.platforms?.map((data) => {
-                            return (
-                                <h3 key={data.platform.id}>{data.platform.name}</h3>
-                            )
-                        })}
-                    </Platforms>
-                </Info>
-            </Stats>
-            <Media className="media">
-                <img src={game.background_image} alt={game.name} />
-            </Media>
-            <Description className="description">
-                <p>{game.description_raw}</p>
-            </Description>
-            <div className="gallery">
-                {screen.results?.map((screen) => {
-                    return (
-                        <img src={screen.image} key={screen.id} alt='Image' />
-                    )
-                })}
-            </div>
-        </Detail>
-    </CardShadow>
+      <div>
+          {!isloading && (
+              <CardShadow className='card-shadow'>
+                  <Detail className="detail">
+                      <Stats className="stats">
+                          <div className="rating">
+                              <h3>{game.name}</h3>
+                              <p>Rating: {game.rating}</p>
+                          </div>
+                          <Info className="info">
+                              <h3>Platforms</h3>
+                              <Platforms className="platforms">
+                                  {game.platforms?.map((data) => {
+                                      return (
+                                          <h3 key={data.platform.id}>{data.platform.name}</h3>
+                                      )
+                                  })}
+                              </Platforms>
+                          </Info>
+                      </Stats>
+                      <Media className="media">
+                          <img src={game.background_image} alt={game.name} />
+                      </Media>
+                      <Description className="description">
+                          <p>{game.description_raw}</p>
+                      </Description>
+                      <div className="gallery">
+                          {screen.results?.map((screen) => {
+                              return (
+                                  <img src={screen.image} key={screen.id} alt='Image' />
+                              )
+                          })}
+                      </div>
+                  </Detail>
+              </CardShadow>
+          )}
+      </div>
   );
 };
 
