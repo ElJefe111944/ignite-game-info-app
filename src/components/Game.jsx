@@ -4,7 +4,9 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 // redux
 import { useDispatch } from 'react-redux';
-import { loadDetail } from '../action/detailActions.js'
+import { loadDetail } from '../action/detailActions.js';
+// routing
+import { Link } from 'react-router-dom';
 
 
 function Game( { game } ) {
@@ -21,23 +23,25 @@ function Game( { game } ) {
 
   const loadDetailHandler = () => {
     dispatch(loadDetail(id));
-    console.log('clicked')
   };
 
   return (
     <StyledGame onClick={loadDetailHandler}>
+      <Link to={`/game/${id}`}>
         <h3>{name}</h3>
         <p>{released}</p>
         <img src={background_image} alt={name} />
+      </Link>
     </StyledGame>
   )
 }
 
 const StyledGame = styled(motion.div)`
-min-height: 30vh;
-box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
-text-align: center;
-border-radius: 1rem;
+    min-height: 30vh;
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
+    text-align: center;
+    border-radius: 1rem;
+    cursor: pointer;
 
   img {
     width: 100%;
