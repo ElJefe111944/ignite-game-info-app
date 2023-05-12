@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 // router 
 import { useNavigate } from 'react-router';
+import { smallImage } from '../util';
 
 function GamesDetail() {
 
@@ -20,7 +21,7 @@ function GamesDetail() {
         
         if(element.classList.contains('shadow')){
             document.body.style.overflow = 'auto';
-            navigate('/')
+            navigate('/');
         };
     };
 
@@ -46,7 +47,7 @@ function GamesDetail() {
                           </Info>
                       </Stats>
                       <Media className="media">
-                          <img src={game.background_image} alt={game.name} />
+                          <img src={smallImage(game.background_image, 1280)} alt={game.name} />
                       </Media>
                       <Description className="description">
                           <p>{game.description_raw}</p>
@@ -54,7 +55,7 @@ function GamesDetail() {
                       <div className="gallery">
                           {screen.results?.map((screen) => {
                               return (
-                                  <img src={screen.image} key={screen.id} alt='Image' />
+                                  <img src={smallImage(screen.image, 1280)} key={screen.id} alt='Image' />
                               )
                           })}
                       </div>

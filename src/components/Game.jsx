@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { loadDetail } from '../action/detailActions.js';
 // routing
 import { Link } from 'react-router-dom';
+import { smallImage } from '../util.js';
 
 
 function Game( { game } ) {
@@ -32,7 +33,7 @@ function Game( { game } ) {
       <Link to={`/game/${id}`}>
         <h3>{name}</h3>
         <p>{released}</p>
-        <img src={background_image} alt={name} />
+        <img src={smallImage(background_image, 640)} alt={name} />
       </Link>
     </StyledGame>
   )
