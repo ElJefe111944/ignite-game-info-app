@@ -22,6 +22,8 @@ function Game( { game } ) {
   const dispatch = useDispatch();
 
   const loadDetailHandler = () => {
+    // make backgrond non scrollable 
+    document.body.style.overflow = 'hidden';
     dispatch(loadDetail(id));
   };
 
@@ -48,8 +50,6 @@ const StyledGame = styled(motion.div)`
     width: 100%;
     height: 40vh;
     object-fit: cover;
-    /* border-bottom-left-radius: 1rem;
-    border-bottom-right-radius: 1rem; */
   }
 `;
 
