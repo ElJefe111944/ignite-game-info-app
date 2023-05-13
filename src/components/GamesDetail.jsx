@@ -7,6 +7,13 @@ import { useSelector } from 'react-redux';
 // router 
 import { useNavigate } from 'react-router';
 import { smallImage } from '../util';
+import playstation from '../assets/playstation.svg';
+import xbox from '../assets/xbox.svg';
+import nintendo from '../assets/nintendo.svg';
+import steam from '../assets/steam.svg';
+import gamepad from '../assets/gamepad.svg';
+import apple from '../assets/apple.svg';
+
 
 function GamesDetail({ pathId }) {
 
@@ -26,6 +33,24 @@ function GamesDetail({ pathId }) {
         };
     };
 
+    // get platform images 
+    const getPlatform = (platform) => {
+        switch(platform){
+            case 'Playstation 4' || 'Playstation 5':
+                return playstation;
+            case 'Xbox One':
+                return xbox;
+            case 'PC':
+                return steam;
+            case 'Nintendo Switch':
+                return nintendo;
+            case 'iOS':
+                return apple;
+            default:
+                return gamepad;            
+        }
+    };
+
   return (
       <>
           {!isloading && (
@@ -41,7 +66,7 @@ function GamesDetail({ pathId }) {
                               <Platforms className="platforms">
                                   {game.platforms?.map((data) => {
                                       return (
-                                          <h3 key={data.platform.id}>{data.platform.name}</h3>
+                                          <img key={data.platform.id} alt='platforms' src={getPlatform(data.platform.name)}></img>
                                       )
                                   })}
                               </Platforms>
