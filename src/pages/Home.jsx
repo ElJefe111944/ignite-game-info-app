@@ -6,7 +6,7 @@ import Game from '../components/Game';
 import GamesDetail from '../components/GamesDetail';
 // styling & animation
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence, LayoutGroup } from 'framer-motion';
 // routing
 import { useLocation } from 'react-router';
 
@@ -28,33 +28,37 @@ function Home() {
         
 
   return (
-    <GameList>
-        {pathId && <GamesDetail />}
-        <h2>Upcoming Games</h2>
-        <Games>
-            {upcoming.map((game) => {
-                return (
-                    <Game game={game} key={game.id} />
-                )
-            })}
-        </Games>
-        <h2>Popular Games</h2>
-        <Games>
-            {popular.map((game) => {
-                return (
-                    <Game game={game} key={game.id} />
-                )
-            })}
-        </Games>
-        <h2>New Games</h2>
-        <Games>
-            {newGames.map((game) => {
-                return (
-                    <Game game={game} key={game.id} />
-                )
-            })}
-        </Games>
-    </GameList>
+      <GameList>
+          <LayoutGroup type="crossfade">
+              <AnimatePresence>
+                  {pathId && <GamesDetail pathId={pathId} />}
+              </AnimatePresence>
+              <h2>Upcoming Games</h2>
+              <Games>
+                  {upcoming.map((game) => {
+                      return (
+                          <Game game={game} key={game.id} />
+                      )
+                  })}
+              </Games>
+              <h2>Popular Games</h2>
+              <Games>
+                  {popular.map((game) => {
+                      return (
+                          <Game game={game} key={game.id} />
+                      )
+                  })}
+              </Games>
+              <h2>New Games</h2>
+              <Games>
+                  {newGames.map((game) => {
+                      return (
+                          <Game game={game} key={game.id} />
+                      )
+                  })}
+              </Games>
+          </LayoutGroup>
+      </GameList>
   )
 };
 

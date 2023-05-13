@@ -11,13 +11,16 @@ import { smallImage } from '../util.js';
 
 
 function Game( { game } ) {
-  // prop destructure
-  const { 
-    name, 
-    released,
-    background_image,
-    id
-  } = game;
+
+    // prop destructure
+    const { 
+      name, 
+      released,
+      background_image,
+      id
+    } = game;
+
+  const stringPathId = id.toString();
 
   // load details
   const dispatch = useDispatch();
@@ -29,11 +32,11 @@ function Game( { game } ) {
   };
 
   return (
-    <StyledGame onClick={loadDetailHandler}>
+    <StyledGame layout={stringPathId} onClick={loadDetailHandler}>
       <Link to={`/game/${id}`}>
-        <h3>{name}</h3>
+        <motion.h3 layoutId={`title ${stringPathId}`}>{name}</motion.h3>
         <p>{released}</p>
-        <img src={smallImage(background_image, 640)} alt={name} />
+        <motion.img layoutId={`image ${stringPathId}`} src={smallImage(background_image, 640)} alt={name} />
       </Link>
     </StyledGame>
   )

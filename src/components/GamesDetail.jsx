@@ -8,9 +8,10 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { smallImage } from '../util';
 
-function GamesDetail() {
+function GamesDetail({ pathId }) {
 
     let navigate = useNavigate();
+    console.log(typeof pathId);
 
     // load game details
     const { screen, game, isloading } = useSelector((state => state.details));
@@ -29,10 +30,10 @@ function GamesDetail() {
       <div>
           {!isloading && (
               <CardShadow className='card-shadow shadow' onClick={exitDetailHandler}>
-                  <Detail className="detail">
+                  <Detail layoutId={pathId} className="detail">
                       <Stats className="stats">
                           <div className="rating">
-                              <h3>{game.name}</h3>
+                              <motion.h3 layoutId={`title ${pathId}`}>{game.name}</motion.h3>
                               <p>Rating: {game.rating}</p>
                           </div>
                           <Info className="info">
@@ -47,7 +48,7 @@ function GamesDetail() {
                           </Info>
                       </Stats>
                       <Media className="media">
-                          <img src={smallImage(game.background_image, 1280)} alt={game.name} />
+                          <motion.img layoutId={`image ${pathId}`} src={smallImage(game.background_image, 1280)} alt={game.name} />
                       </Media>
                       <Description className="description">
                           <p>{game.description_raw}</p>
@@ -55,7 +56,7 @@ function GamesDetail() {
                       <div className="gallery">
                           {screen.results?.map((screen) => {
                               return (
-                                  <img src={smallImage(screen.image, 1280)} key={screen.id} alt='Image' />
+                                  <img src={smallImage(screen.image, 1280)} key={screen.id} alt={screen.id} />
                               )
                           })}
                       </div>
