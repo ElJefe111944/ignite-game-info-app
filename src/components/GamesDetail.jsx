@@ -7,12 +7,15 @@ import { useSelector } from 'react-redux';
 // router 
 import { useNavigate } from 'react-router';
 import { smallImage } from '../util';
+// images
 import playstation from '../assets/playstation.svg';
 import xbox from '../assets/xbox.svg';
 import nintendo from '../assets/nintendo.svg';
 import steam from '../assets/steam.svg';
 import gamepad from '../assets/gamepad.svg';
 import apple from '../assets/apple.svg';
+import starEmpty from '../assets/star-empty.png';
+import starFull from '../assets/star-full.png';
 
 
 function GamesDetail({ pathId }) {
@@ -31,6 +34,22 @@ function GamesDetail({ pathId }) {
             document.body.style.overflow = 'auto';
             navigate('/');
         };
+    };
+
+    // rating stars 
+    const getStars = () => {
+        const stars = [];
+        const rating = Math.floor(game.rating);
+        
+        for(let i = 1; i <= 5; i++){
+            if(i <= rating){
+                stars.push(<img alt='star' key={i} src={starFull} />);
+            } else {
+                stars.push(<img alt='star' key={i} src={starEmpty} />)
+            }
+            
+        };
+        return stars;
     };
 
     // get platform images 
@@ -60,6 +79,7 @@ function GamesDetail({ pathId }) {
                           <div className="rating">
                               <motion.h3 layoutId={`title ${pathId}`}>{game.name}</motion.h3>
                               <p>Rating: {game.rating}</p>
+                              {getStars(game.rating)}
                           </div>
                           <Info className="info">
                               <h3>Platforms</h3>
@@ -129,6 +149,13 @@ const Stats = styled(motion.div)`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    white-space: nowrap;
+
+    img {
+        width: 2rem;
+        height: 2rem;
+        display: inline;
+    }
 `;
 const Info = styled(motion.div)`
     text-align: center;
