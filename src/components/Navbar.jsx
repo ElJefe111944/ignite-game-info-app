@@ -1,24 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 // animations & styling 
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 // assets 
 import logo from '../assets/logo.svg';
+// Redux  Routes
+import { fetchSearch } from '../action/gamesAction';
+import { useDispatch } from 'react-redux';
 
 function Navbar() {
+
+    // search functionality
+    const dispatch = useDispatch();
+    const [textInput, setTextInput] = useState('');
+
+    // on change
+    const inputHandler = (e) => {
+        let searchInput = e.target.value;
+        setTextInput(searchInput);
+    };
+    // on submit 
+    const submitSearch = (e) => {
+        e.preventDefault();
+        dispatch(fetchSearch(textInput));
+        setTextInput('');
+    };
+
   return (
       <StyledNav>
           <Logo>
               <img src={logo} alt="logo" />
               <h1>Ignite</h1>
           </Logo>
-          <div className="search">
-            <input type="text" />
-            <button>Search</button>
-          </div>
+          <form className="search">
+            <input value={textInput} onChange={inputHandler} type="text" />
+            <button onClick={submitSearch} type='submit'>Search</button>
+          </form>
       </StyledNav>
   )
-}
+};
 
 const StyledNav = styled(motion.nav)`
     padding: 3rem 5rem;
