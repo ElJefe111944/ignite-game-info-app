@@ -7,6 +7,7 @@ import GamesDetail from '../components/GamesDetail';
 // styling & animation
 import styled from 'styled-components';
 import { motion, AnimatePresence, LayoutGroup } from 'framer-motion';
+import { fadeIn } from '../animation';
 // routing
 import { useLocation } from 'react-router';
 
@@ -28,11 +29,10 @@ function Home() {
         
 
   return (
-      <GameList>
-          <LayoutGroup type="crossfade">
-              <AnimatePresence>
+      <GameList variants={fadeIn} initial='hidden' animate='show'>
+
                   {pathId && <GamesDetail pathId={pathId} />}
-              </AnimatePresence>
+         
               {searched.length > 0 && (
                  <div className='searched'>
                  <h2>Searched Games</h2>
@@ -69,7 +69,7 @@ function Home() {
                       )
                   })}
               </Games>
-          </LayoutGroup>
+
       </GameList>
   )
 };
