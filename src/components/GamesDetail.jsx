@@ -24,7 +24,7 @@ function GamesDetail({ pathId }) {
     console.log(typeof pathId);
 
     // load game details
-    const { screen, game, isloading } = useSelector((state => state.details));
+    const { screen, game, isLoading } = useSelector((state => state.details));
 
     // exit game detail 
     const exitDetailHandler = (e) => {
@@ -72,12 +72,12 @@ function GamesDetail({ pathId }) {
 
   return (
       <>
-          {!isloading && (
+          {!isLoading && (
               <CardShadow className='card-shadow shadow' onClick={exitDetailHandler}>
-                  <Detail className="detail">
+                  <Detail layoutId={pathId} className="detail">
                       <Stats className="stats">
                           <div className="rating">
-                              <motion.h3>{game.name}</motion.h3>
+                              <motion.h3 layoutId={`title ${pathId}`}>{game.name}</motion.h3>
                               <p>Rating: {game.rating}</p>
                               {getStars(game.rating)}
                           </div>
@@ -93,7 +93,7 @@ function GamesDetail({ pathId }) {
                           </Info>
                       </Stats>
                       <Media className="media">
-                          <motion.img src={smallImage(game.background_image, 1280)} alt={game.name} />
+                          <motion.img layoutId={`image ${pathId}`} src={smallImage(game.background_image, 1280)} alt={game.name} />
                       </Media>
                       <Description className="description">
                           <p>{game.description_raw}</p>
