@@ -6,7 +6,7 @@ import Game from '../components/Game';
 import GamesDetail from '../components/GamesDetail';
 // styling & animation
 import styled from 'styled-components';
-import { motion, AnimatePresence, LayoutGroup } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { fadeIn } from '../animation';
 // routing
 import { useLocation } from 'react-router';
