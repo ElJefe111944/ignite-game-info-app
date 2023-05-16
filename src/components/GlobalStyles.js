@@ -50,6 +50,20 @@ const GlobalStyles = createGlobalStyle`
         font-weight: bold;
         font-family: 'Montserrat', sans-serif;
     }
+
+    @media(max-width: 768px){
+        h2 {
+        font-size: 1.75rem;
+        }
+        h3 {
+        font-size: .90rem;
+        padding: 1.10rem 0.5rem;
+        }
+        p {
+        font-size: .70rem;
+        line-height: 150%;
+        }
+    }
     `
 
 export default GlobalStyles;

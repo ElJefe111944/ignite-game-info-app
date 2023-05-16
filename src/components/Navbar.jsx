@@ -50,6 +50,11 @@ function Navbar() {
 const StyledNav = styled(motion.nav)`
     padding: 3rem 5rem;
     text-align: center;
+    @media(max-width: 768px){
+        padding: .5rem 0.55rem;
+        text-align: center;
+    }
+
     input {
         width: 37%;
         font-size: 1.5rem;
@@ -57,6 +62,11 @@ const StyledNav = styled(motion.nav)`
         border: none;
         margin-top: 1rem;
         box-shadow: 0px 0px 30px rgba(0,0,0,0.2);
+        @media(max-width: 768px){
+            width: 65%;
+            font-size: .95rem;
+            padding: 0.5rem;  
+    }
     }
     button {
         font-size: 1.5rem;
@@ -65,6 +75,10 @@ const StyledNav = styled(motion.nav)`
         cursor: pointer;
         background: #ff7676;
         color: white;
+        @media(max-width: 768px){
+            font-size: .95rem;
+            padding: 0.5rem 1rem;        
+    }
     }
 `;
 const Logo = styled(motion.div)`

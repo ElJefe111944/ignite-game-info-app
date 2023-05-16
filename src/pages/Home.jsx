@@ -76,9 +76,15 @@ function Home() {
 
 const GameList = styled(motion.div)`
     padding: 0rem 5rem;
+    @media(max-width: 768px){
+        padding: 0rem 0.55rem;
+    }
     
     h2 {
         padding: 5rem 0rem;
+        @media(max-width: 768px){
+            padding: 2.5rem 0rem;
+    }
     }
 
 `;
@@ -89,6 +95,11 @@ const Games = styled(motion.div)`
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     grid-column-gap: 3rem;
     grid-row-gap: 5rem;
+    @media(max-width: 768px){
+        grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+        grid-column-gap: 1rem;
+        grid-row-gap: 2rem;
+    }
 `;
 
 
