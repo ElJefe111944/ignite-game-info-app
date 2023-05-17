@@ -76,11 +76,11 @@ function GamesDetail({ pathId }) {
               <CardShadow className='card-shadow shadow' onClick={exitDetailHandler}>
                   <Detail layoutId={pathId} className="detail">
                       <Stats className="stats">
-                          <div className="rating">
+                          <Rating className="rating">
                               <motion.h3 layoutId={`title ${pathId}`}>{game.name}</motion.h3>
                               <p>Rating: {game.rating}</p>
                               {getStars(game.rating)}
-                          </div>
+                          </Rating>
                           <Info className="info">
                               <h3>Platforms</h3>
                               <Platforms className="platforms">
@@ -98,13 +98,13 @@ function GamesDetail({ pathId }) {
                       <Description className="description">
                           <p>{game.description_raw}</p>
                       </Description>
-                      <div className="gallery">
+                      <Gallery className="gallery">
                           {screen.results?.map((screen) => {
                               return (
                                   <img src={smallImage(screen.image, 1280)} key={screen.id} alt={screen.id} />
                               )
                           })}
-                      </div>
+                      </Gallery>
                   </Detail>
               </CardShadow>
           )}
@@ -140,6 +140,14 @@ const Detail = styled(motion.div)`
     position: absolute;
     left: 10%;
     color: black;
+    @media(max-width: 768px){
+        padding: 1rem 0.5rem;
+
+        img[alt="star"]{
+            width: 1rem;
+            height: 1rem;
+        }
+    }
 
     img {
         width: 100%;
@@ -151,14 +159,31 @@ const Stats = styled(motion.div)`
     justify-content: space-between;
     white-space: nowrap;
 
+    @media(max-width: 769px){
+        flex-direction: column;
+    }
+
     img {
         width: 2rem;
         height: 2rem;
         display: inline;
+
+        @media(max-width: 769px){        
+            height: 1.5rem;
+            width: 1.75rem;
+    }
+
     }
 `;
 const Info = styled(motion.div)`
     text-align: center;
+
+    @media(max-width: 769px){
+        h3 {
+            padding: 0.5rem;
+        }
+    }
+    
 `;
 const Platforms = styled(motion.div)`
     display: flex;
@@ -166,18 +191,51 @@ const Platforms = styled(motion.div)`
 
     img {
         margin-left: 3rem;
+        @media(max-width: 768px){
+        margin-left: 0.5rem;
+    }
     }
 `;
 const Media = styled(motion.div)`
     margin-top: 5rem;
+
+    @media(max-width: 768px){
+        margin-top: 1rem;
+    }
 
     img {
         width: 100%;
    
     }
 `;
+
+const Rating = styled(motion.div)`
+    @media(max-width: 768px){
+        h3 {
+        padding: 0px;
+        font-size: 11px;
+        text-align: center;
+        width: 100%;
+    }
+    p {
+        margin-top: 5px;
+    }
+    }
+`;
 const Description = styled(motion.div)`
     margin: 5rem 0rem;
+
+    @media(max-width: 768px){
+        margin: .75rem 0rem;        
+    }
+`;
+
+const Gallery = styled(motion.div)`
+    @media(max-width: 768px) {
+        img {
+            margin-top: .55rem;
+        }
+    }
 `;
 
 export default GamesDetail

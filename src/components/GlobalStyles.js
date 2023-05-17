@@ -57,7 +57,7 @@ const GlobalStyles = createGlobalStyle`
         }
         h3 {
         font-size: .90rem;
-        padding: 1.10rem 0.5rem;
+        padding: 1.10rem 2.5rem;
         }
         p {
         font-size: .70rem;
