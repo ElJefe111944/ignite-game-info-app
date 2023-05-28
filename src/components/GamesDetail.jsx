@@ -55,14 +55,20 @@ function GamesDetail({ pathId }) {
     // get platform images 
     const getPlatform = (platform) => {
         switch(platform){
-            case 'Playstation 4' || 'Playstation 5':
+            case 'PlayStation 4':
+            case 'PlayStation 5':
                 return playstation;
             case 'Xbox One':
+            case 'Xbox Series S/X':
                 return xbox;
             case 'PC':
+            case 'Linux':
                 return steam;
             case 'Nintendo Switch':
+            case 'Wii U':
+            case 'Wii':
                 return nintendo;
+            case 'macOS':
             case 'iOS':
                 return apple;
             default:
