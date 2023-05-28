@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+# Ignite
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![](./src/assets/read-me-images/read-me1.png)
+![](./src/assets/read-me-images/read-me2.png)
+![](./src/assets/read-me-images/read-me3.png)
+![](./src/assets/read-me-images/read-me4.png)
+![](./src/assets/read-me-images/read-me5.png)
+![](./src/assets/read-me-images/read-me6.png)
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+Ignite is a game search and detail application built using React. It utilizes the RAWG Video Games Database API to fetch game data and provide users with information about different games. The application features a single-page design with a search bar in the navigation, smooth animations for rendering game cards, and detailed information about individual games.
 
-### `npm start`
+## Components
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The Ignite application consists of the following components:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Game**: This component is responsible for displaying a game card with basic information such as the title, release date, and platform.
 
-### `npm test`
+- **GameDetails**: This component renders detailed information about a selected game, including its description, screenshots, and ratings.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Navbar**: This component contains the navigation bar with a search bar for searching games.
 
-### `npm run build`
+## Technologies Used
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The following technologies were used in the development of the Ignite application:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- React: A JavaScript library for building user interfaces.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- React Router DOM: Provides declarative routing for React applications.
 
-### `npm run eject`
+- Redux: A predictable state container for JavaScript apps.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Redux Thunk: A middleware that allows writing action creators that return a function instead of an action.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Framer Motion: A library for creating fluid animations in React.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Styled Components: A CSS-in-JS library for styling React components.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Axios: A promise-based HTTP client for making API requests.
 
-## Learn More
+## Installation and Setup
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To run the Ignite application locally, follow these steps:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Clone the repository:
 
-### Code Splitting
+git clone https://github.com/your-username/ignite.git
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. Navigate to the project directory:
 
-### Analyzing the Bundle Size
+cd ignite
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+3. Install the dependencies:
 
-### Making a Progressive Web App
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+4. Start the application:
 
-### Advanced Configuration
+npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+5. Open your browser and visit [http://localhost:3000](http://localhost:3000) to access the Ignite application.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Contributing
 
-### `npm run build` fails to minify
+Contributions to the Ignite application are welcome. If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+When contributing to this repository, please ensure that your pull requests follow the established code style and include relevant tests.
+
+## License
+
+The Ignite application is open-source software licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+## Acknowledgments
+
+- The Ignite application was developed as part of a React web development course.
+- The RAWG Video Games Database API was used to fetch game data.
+
+---
+
+Thank you for using Ignite! If you have any questions or need further assistance, please don't hesitate to reach out.
